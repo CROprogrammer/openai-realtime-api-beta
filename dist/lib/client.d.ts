@@ -158,7 +158,8 @@
  * @typedef {Object} RealtimeClientSettings
  * @property {string} [url] - The URL for the realtime client
  * @property {string} [apiKey] - The API key
- * @property {string} [model] - The model name to use
+ * @property {string} [realtimeDeploymentModel] - The name of realtime model deployment to use
+ * @property {string} [realtimeModelVersion] - The version of realtime model to use
  * @property {boolean} [dangerouslyAllowAPIKeyInBrowser] - Whether to allow API key in browser
  * @property {boolean} [debug] - Enable debug mode
  */
@@ -171,7 +172,7 @@ export class RealtimeClient extends RealtimeEventHandler {
      * Create a new RealtimeClient instance
      * @param {RealtimeClientSettings} [settings]
      */
-    constructor({ url, apiKey, model, dangerouslyAllowAPIKeyInBrowser, debug, }?: RealtimeClientSettings);
+    constructor({ url, apiKey, realtimeDeploymentModel, realtimeModelVersion, dangerouslyAllowAPIKeyInBrowser, debug, }?: RealtimeClientSettings);
     defaultSessionConfig: {
         modalities: string[];
         instructions: string;
@@ -471,9 +472,13 @@ export type RealtimeClientSettings = {
      */
     apiKey?: string;
     /**
-     * - The model name to use
+     * - The name of realtime model deployment to use
      */
-    model?: string;
+    realtimeDeploymentModel?: string;
+    /**
+     * - The version of realtime model to use
+     */
+    realtimeModelVersion?: string;
     /**
      * - Whether to allow API key in browser
      */
